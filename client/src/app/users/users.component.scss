@@ -8,11 +8,16 @@
 
     header {
         text-align: center;
-        padding: 20px 0 40px;
+        padding: 20px 0 10px;
         border-bottom: 1px solid #92959E;
 
         .first-letter {
             margin-right: 0;
+        }
+
+        .mat-button {
+            color: #92959E;
+            margin: 5px 0;
         }
     }
 

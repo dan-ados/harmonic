@@ -57,7 +57,7 @@ export class UsersComponent implements OnInit, OnDestroy {
                 sessionStorage.setItem('connectedUserId', this.connectedUser.id.toString())
                 this.appService.connectedUserChanged.next(this.connectedUser);
 
-                this.subscriptions['updateStatus'] = this.usersService.updateStatus(this.connectedUser).subscribe(userResponse => {
+                this.subscriptions['updateStatus'] = this.usersService.updateStatus(this.connectedUser, true).subscribe(userResponse => {
                     this.appService.initUserStatus(userResponse.id)
                 })
 
@@ -72,6 +72,15 @@ export class UsersComponent implements OnInit, OnDestroy {
             });
         }
 
+
+    }
+
+    disconnect() {
+        this.subscriptions['updateStatus'] = this.usersService.updateStatus(this.connectedUser, false).subscribe(userResponse => {
+            this.appService.initUserStatus(userResponse.id);
+            sessionStorage.removeItem('connectedUserId');
+            window.location.reload();
+        })
 
     }
 

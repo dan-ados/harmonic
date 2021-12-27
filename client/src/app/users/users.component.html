@@ -1,6 +1,7 @@
 <header *ngIf="!loginChoose">
     <div class="first-letter">{{ displayName[0] }}</div>
     <div class="user-name">{{ displayName }}</div>
+    <a mat-button (click)="disconnect()">Logout</a>
 </header>
 
 <ul *ngIf="usersList">

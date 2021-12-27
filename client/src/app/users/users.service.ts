@@ -22,8 +22,8 @@ export class UsersService {
         return this.http.get<User>('/api/users/' + userId + '/');
     }
 
-    updateStatus(user: User): Observable<User> {
-        return this.http.put<User>('/api/users/' + user.id + '/', {username: user.username, is_active: true});
+    updateStatus(user: User, online: boolean): Observable<User> {
+        return this.http.put<User>('/api/users/' + user.id + '/', {username: user.username, is_active: online});
     }
 
 }
