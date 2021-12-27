@@ -19,5 +19,13 @@
             color: #fff;
             text-transform: uppercase;
         }
+
+        .ng-touched::-webkit-input-placeholder {
+            visibility: hidden;
+        }
+
+        .ng-untouched::-webkit-input-placeholder {
+            color: #92959E;
+        }
     }
 }

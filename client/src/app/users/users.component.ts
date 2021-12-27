@@ -56,11 +56,9 @@ export class UsersComponent implements OnInit, OnDestroy {
                 this.connectedUser = connectedUser;
                 sessionStorage.setItem('connectedUserId', this.connectedUser.id.toString())
                 this.appService.connectedUserChanged.next(this.connectedUser);
-
-                this.subscriptions['updateStatus'] = this.usersService.updateStatus(this.connectedUser, true).subscribe(userResponse => {
+                this.usersService.updateStatus(this.connectedUser, true).pipe(take(1)).subscribe(userResponse => {
                     this.appService.initUserStatus(userResponse.id)
-                })
-
+                });
             });
 
         } else {
@@ -72,11 +70,10 @@ export class UsersComponent implements OnInit, OnDestroy {
             });
         }
 
-
     }
 
     disconnect() {
-        this.subscriptions['updateStatus'] = this.usersService.updateStatus(this.connectedUser, false).subscribe(userResponse => {
+        this.usersService.updateStatus(this.connectedUser, false).pipe(take(1)).subscribe(userResponse => {
             this.appService.initUserStatus(userResponse.id);
             sessionStorage.removeItem('connectedUserId');
             window.location.reload();
