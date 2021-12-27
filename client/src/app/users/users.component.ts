@@ -55,9 +55,14 @@ export class UsersComponent implements OnInit, OnDestroy {
             this.subscriptions['getUser'] = this.usersService.getUserByID(id.toString()).pipe(take(1)).subscribe(connectedUser => {
                 this.connectedUser = connectedUser;
                 sessionStorage.setItem('connectedUserId', this.connectedUser.id.toString())
-                this.appService.initUserStatus(this.connectedUser.id)
                 this.appService.connectedUserChanged.next(this.connectedUser);
+
+                this.subscriptions['updateStatus'] = this.usersService.updateStatus(this.connectedUser).subscribe(userResponse => {
+                    this.appService.initUserStatus(userResponse.id)
+                })
+
             });
+
         } else {
             // Choosing user to chat
             this.chatUserId = id;
