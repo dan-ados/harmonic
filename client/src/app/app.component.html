@@ -1,0 +1,23 @@
+<main>
+
+    <ng-template [ngIf]="connectedUser" [ngIfElse]="stillNotConnected">
+        <div class="main-chat">
+            <app-users [connectedUser]="connectedUser"></app-users>
+            <section class="middle">
+                <app-messages *ngIf="chatUser" [connectedUser]="connectedUser" [chatUser]="chatUser"></app-messages>
+                <app-input *ngIf="chatUser" [connectedUser]="connectedUser" [chatUser]="chatUser"></app-input>
+                <div *ngIf="!chatUser" class="not-selected">
+                    Please select some user to start chat with him
+                </div>
+            </section>
+        </div>
+    </ng-template>
+
+    <ng-template #stillNotConnected>
+        <div class="user-selection">
+            <h1>Choose your user</h1>
+            <app-users [loginChoose]="true"></app-users>
+        </div>
+    </ng-template>
+
+</main>

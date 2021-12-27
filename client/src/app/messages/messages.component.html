@@ -1,0 +1,7 @@
+<div class="main-block">
+    <div *ngIf="chatUser" #messagesBlock class="chat-wrapper"></div>
+</div>
+<div *ngIf="chatUser" class="user-wrapper">
+    Chat with <br />
+    <strong class="user-name">{{ chatUser.username }}</strong>
+</div>

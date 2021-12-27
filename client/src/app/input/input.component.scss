@@ -1,0 +1,23 @@
+@import '../../variables.scss';
+
+:host::ng-deep {
+    form {
+        height: 60px;
+        display: flex;
+        align-items: stretch;
+        flex-direction: row;
+        align-content: stretch;
+        justify-content: space-between;
+        overflow: hidden;
+
+        .mat-form-field {
+            width: 100%;
+        }
+
+        .mat-button {
+            background: #444753;
+            color: #fff;
+            text-transform: uppercase;
+        }
+    }
+}

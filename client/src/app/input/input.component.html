@@ -1,0 +1,8 @@
+<form (submit)="sendMessage()">
+    <mat-form-field appearance="fill">
+        <input matInput
+               type="text"
+               [formControl]="messageText">
+    </mat-form-field>
+    <button mat-button>Send</button>
+</form>

@@ -1,0 +1,18 @@
+<header *ngIf="!loginChoose">
+    <div class="first-letter">{{ displayName[0] }}</div>
+    <div class="user-name">{{ displayName }}</div>
+</header>
+
+<ul *ngIf="usersList">
+    <li *ngFor="let user of usersList" (click)="chooseUser(user.id)" [class.selected-user]="chatUserId === user.id">
+        <div class="first-letter">{{user.username[0]}}</div>
+        <div>
+            <div class="user-name">{{user.username}}</div>
+            <div class="status">
+                <span class="icon-status" [class]="user.is_active ? 'online' : 'offline'"></span>
+                <span class="status-name">{{ user.is_active ? 'online' : 'offline' }}</span>
+            </div>
+        </div>
+    </li>
+
+</ul>

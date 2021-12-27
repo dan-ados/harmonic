@@ -1,0 +1,47 @@
+@import '../variables';
+
+:host::ng-deep {
+
+    main {
+        animation: _2xtgz .3s cubic-bezier(.1, .82, .25, 1);
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+        height: 100%;
+
+    }
+
+    .main-chat {
+        display: flex;
+        min-height: 100%;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .not-selected {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-size: 2em;
+    }
+
+    .user-selection {
+        display: flex;
+        flex-direction: column;
+        align-content: baseline;
+        align-items: center;
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            font-size: 3rem;
+        }
+    }
+}
